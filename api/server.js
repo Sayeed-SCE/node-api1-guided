@@ -20,6 +20,10 @@ server.get('/hello', (req, res) => {
     res.json({ hello: "there" });
 });
 
+server.get('server/hangs', (req, res) => {
+
+});
+
 // [GET]    /api/dogs     (R of CRUD, fetch all dogs)
 // [GET]    /api/dogs/:id (R of CRUD, fetch dog by :id)
 // [POST]   /api/dogs     (C of CRUD, create new dog from JSON payload)
