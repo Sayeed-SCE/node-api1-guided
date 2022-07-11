@@ -7,6 +7,7 @@ const express = require('express');
 const server = express();
 
 // GLOBAL MIDDLEWARE
+server.use(express.json());
 
 // ENDPOINTS
 
@@ -43,7 +44,12 @@ server.get('/api/dogs/:id/', (req, res) => {
 });
 
 // [POST]   /api/dogs     (C of CRUD, create new dog from JSON payload)
-
+server.post('/api/dogs', (req, res) => {
+    let body = req.body;
+    Dogs.create(body).then(dog => {
+        res.status(201).json(dog);
+    });
+});
 
 // [PUT]    /api/dogs/:id (U of CRUD, update dog with :id using JSON payload)
 
