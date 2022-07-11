@@ -48,11 +48,11 @@ server.post('/api/dogs', (req, res) => {
     let body = req.body;
     if(body.name == null) {
         res.status(400).json({ message: 'name is missing' });
-        // return;
+        return;
     }
     if(body.weight == null) {
         res.status(400).json({ message: 'weight is missing' });
-        // return;
+        return;
     }
     Dogs.create(body).then(dog => {
         res.status(201).json(dog);
