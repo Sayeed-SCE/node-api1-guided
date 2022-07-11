@@ -1,6 +1,9 @@
 // IMPORTS AT THE TOP
 
 // INSTANCE OF EXPRESS APP
+const express = require('express');
+
+const server = express();
 
 // GLOBAL MIDDLEWARE
 
@@ -14,3 +17,4 @@
 // [DELETE] /api/dogs/:id (D of CRUD, remove dog with :id)
 
 // EXPOSING THE SERVER TO OTHER MODULES
+module.exports = server;
