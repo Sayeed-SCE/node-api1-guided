@@ -12,7 +12,7 @@ const server = express();
 // [GET]    /             (Hello World endpoint)
 server.get('/', (req, res) => {
     console.log('here is my log');
-    res.status(500).send('Hello, World!');
+    res.send('{"key": "value"}');
 })
 
 // [GET]    /api/dogs     (R of CRUD, fetch all dogs)
