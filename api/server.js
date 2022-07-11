@@ -10,6 +10,10 @@ const server = express();
 // ENDPOINTS
 
 // [GET]    /             (Hello World endpoint)
+server.get('/', (req, res) => {
+    res.send('Hello, World!');
+})
+
 // [GET]    /api/dogs     (R of CRUD, fetch all dogs)
 // [GET]    /api/dogs/:id (R of CRUD, fetch dog by :id)
 // [POST]   /api/dogs     (C of CRUD, create new dog from JSON payload)
