@@ -71,7 +71,11 @@ server.put('/api/dogs/:id', (req, res) => {
         return;
     }
     Dogs.update(req.params.id, body).then(dog => {
-        res.status(200).json(dog);
+        if(dog == null) { // dog === null || dog === undefined
+            res.status(404).json({ message: 'dog not found' });
+        } else {
+            res.json(dog);
+        }
     });
 });
 
