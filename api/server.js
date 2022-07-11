@@ -60,6 +60,20 @@ server.post('/api/dogs', (req, res) => {
 });
 
 // [PUT]    /api/dogs/:id (U of CRUD, update dog with :id using JSON payload)
+server.put('/api/dogs/:id', (req, res) => {
+    let body = req.body;
+    if(body.name == null) {
+        res.status(400).json({ message: 'name is missing' });
+        return;
+    }
+    if(body.weight == null) {
+        res.status(400).json({ message: 'weight is missing' });
+        return;
+    }
+    Dogs.update(req.params.id, body).then(dog => {
+        res.status(200).json(dog);
+    });
+});
 
 // [DELETE] /api/dogs/:id (D of CRUD, remove dog with :id)
 server.delete('/api/dogs/:id', (req, res) => {
