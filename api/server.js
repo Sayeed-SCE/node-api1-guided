@@ -12,7 +12,8 @@ const server = express();
 // [GET]    /             (Hello World endpoint)
 server.get('/', (req, res) => {
     console.log('here is my log');
-    res.send('{"key": "value"}');
+    // res.send('{"key": "value"}');
+    res.json({ key: "value" });
 })
 
 // [GET]    /api/dogs     (R of CRUD, fetch all dogs)
