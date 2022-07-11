@@ -20,7 +20,7 @@ server.get('/hello', (req, res) => {
     res.json({ hello: "there" });
 });
 
-server.get('server/hangs', (req, res) => {
+server.get('/server/hangs', (req, res) => {
 
 });
 
