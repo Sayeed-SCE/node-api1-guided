@@ -46,6 +46,12 @@ server.get('/api/dogs/:id/', (req, res) => {
 // [POST]   /api/dogs     (C of CRUD, create new dog from JSON payload)
 server.post('/api/dogs', (req, res) => {
     let body = req.body;
+    if(body.name == null) {
+        res.status(400).json({ message: 'name is missing' });
+    }
+    if(body.weight == null) {
+        res.status(400).json({ message: 'weight is missing' });
+    }
     Dogs.create(body).then(dog => {
         res.status(201).json(dog);
     });
