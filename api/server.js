@@ -1,4 +1,5 @@
 // IMPORTS AT THE TOP
+const Dogs = require('./dog-model');
 
 // INSTANCE OF EXPRESS APP
 const express = require('express');
@@ -25,6 +26,10 @@ server.get('/server/hangs', (req, res) => {
 });
 
 // [GET]    /api/dogs     (R of CRUD, fetch all dogs)
+server.get('/api/dogs', (req, res) => {
+    Dogs.findAll().then(dogs => res.json(dogs));
+})
+
 // [GET]    /api/dogs/:id (R of CRUD, fetch dog by :id)
 // [POST]   /api/dogs     (C of CRUD, create new dog from JSON payload)
 // [PUT]    /api/dogs/:id (U of CRUD, update dog with :id using JSON payload)
