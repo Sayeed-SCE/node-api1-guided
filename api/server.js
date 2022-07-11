@@ -33,7 +33,10 @@ server.get('/api/dogs', (req, res) => {
 // [GET]    /api/dogs/:id (R of CRUD, fetch dog by :id)
 server.get('/api/dogs/:id/', (req, res) => {
     const { id } = req.params;
-    Dogs.findById(id).then(dog => res.json(dog));
+    Dogs.findById(id).then(dog => {
+        console.log(dog);
+        res.json(dog);
+    });
 });
 
 // [POST]   /api/dogs     (C of CRUD, create new dog from JSON payload)
