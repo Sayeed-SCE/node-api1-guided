@@ -21,7 +21,7 @@ server.get('/hello', (req, res) => {
 });
 
 server.get('/server/hangs', (req, res) => {
-
+    res.status(404).send();
 });
 
 // [GET]    /api/dogs     (R of CRUD, fetch all dogs)
