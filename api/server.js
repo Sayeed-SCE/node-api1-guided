@@ -27,10 +27,15 @@ server.get('/server/hangs', (req, res) => {
 
 // [GET]    /api/dogs     (R of CRUD, fetch all dogs)
 server.get('/api/dogs', (req, res) => {
-    Dogs.findAll().then(dogs => res.json(dogs));
+    Dogs.findAll().then(dogs => res.status(200).json(dogs));
 })
 
 // [GET]    /api/dogs/:id (R of CRUD, fetch dog by :id)
+server.get('/api/dogs/:id/', (req, res) => {
+    const { id } = req.params;
+    Dogs.findById(id).then(dog => res.json(dog));
+});
+
 // [POST]   /api/dogs     (C of CRUD, create new dog from JSON payload)
 // [PUT]    /api/dogs/:id (U of CRUD, update dog with :id using JSON payload)
 // [DELETE] /api/dogs/:id (D of CRUD, remove dog with :id)
