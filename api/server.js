@@ -34,7 +34,7 @@ server.get('/api/dogs', (req, res) => {
 server.get('/api/dogs/:id/', (req, res) => {
     const { id } = req.params;
     Dogs.findById(id).then(dog => {
-        if(dog === undefined) {
+        if(dog == null) { // dog === null || dog === undefined
             res.status(404).json({ message: 'dog not found' });
         } else {
             res.json(dog);
