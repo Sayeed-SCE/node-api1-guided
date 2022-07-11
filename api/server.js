@@ -11,7 +11,7 @@ const server = express();
 
 // [GET]    /             (Hello World endpoint)
 server.get('/', (req, res) => {
-    res.send('Hello, World!!!!');
+    res.status(500).send('Hello, World!!!!');
 })
 
 // [GET]    /api/dogs     (R of CRUD, fetch all dogs)
