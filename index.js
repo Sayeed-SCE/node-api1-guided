@@ -1,13 +1,7 @@
-// import the server and start it!
-const express = require ('express')
+// import the server and start 
+const server = require ('./api/server');
 
-const server = express ()
-
-server.get('/hello', (req, res) =>{
-    res.json({message: 'hello', })
-})
-
-server.listen(5000, () => {
-    console.log('server is listening on 5000')
+server.listen(5001, () => {
+    console.log('server is listening on 5001')
 
 })
